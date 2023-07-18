@@ -11,3 +11,83 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.custom-date-picker {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.month-container {
+  width: 220px;
+}
+
+.month-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.date-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.table-header th {
+  padding: 10px;
+  background-color: #eee;
+}
+
+.table-body td {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.today {
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+.selected {
+  background-color: #d42f32;
+  color: #fff;
+}
+
+.other-month {
+  color: #bbb;
+}
+
+.selected.other-month {
+  background-color: transparent;
+}
+
+.selected.other-month:hover {
+  background-color: #d42f32;
+  color: #fff;
+}
+
+.date-cell:hover {
+  background-color: #f5f5f5;
+}
+.date-by-month{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.date-table{
+  width: max-content;
+  background-color: rgb(106, 212, 212);
+  padding: 20px;
+  border-radius: 6px;
+}
+.table-head{
+  padding: 10px;
+}
+.selected {
+  background-color: rgb(42, 79, 245);
+}
