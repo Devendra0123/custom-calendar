@@ -74,6 +74,14 @@ code {
 .date-cell:hover {
   background-color: #f5f5f5;
 }
+
+.calendar-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
 .date-by-month{
   display: flex;
   flex-direction: column;

@@ -90,7 +90,7 @@ const Calendar = () => {
   };
 
   return (
-    <div>
+    <div className='calendar-div'>
       {Array.from({ length: 12 }).map((_, month) =>
         generateCalendar(year, month)
       )}
