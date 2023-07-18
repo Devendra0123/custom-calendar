@@ -1,36 +1,46 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const Calendar = () => {
+const Calendar = ({ isDoubleDatePicker,handleDateClick,selectedDate, activeMonth,handlePrevMonth, handleNextMonth}) => {
   const year = 2023; // Change to the desired year
-
-  const [selectedDate, setSelectedDate] = useState(null);
 
   const getMonthName = (month) => {
     const monthNames = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
     ];
     return monthNames[month];
   };
 
   const getDayName = (day) => {
     const dayNames = [
-      "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
     ];
     return dayNames[day];
-  };
-
-  const handleDateClick = (day) => {
-    setSelectedDate(day);
   };
 
   const CalendarCell = ({ day, isCurrentDate }) => {
     const cellClass = isCurrentDate ? "selected" : "";
     return (
       <td
-      style={{
-        padding: "5px"
-      }}
+        style={{
+          padding: "5px",
+        }}
         className={cellClass}
         onClick={() => handleDateClick(day)}
       >
@@ -71,13 +81,35 @@ const Calendar = () => {
     }
 
     return (
-      <div className='date-by-month'>
-        <h2>{getMonthName(month)} {year}</h2>
-        <table className='date-table'>
+      <div className="date-by-month">
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <p
+            onClick={() => handlePrevMonth()}
+          >
+            Prev
+          </p>
+          <h2>
+            {getMonthName(month).substring(0, 3)} {year}
+          </h2>
+          <p
+            onClick={() => handleNextMonth()}
+          >
+            Next
+          </p>
+        </div>
+
+        <table className="date-table">
           <thead>
             <tr>
               {Array.from({ length: 7 }).map((_, index) => (
-                <th key={`header-${index}`} className='table-head'>
+                <th key={`header-${index}`} className="table-head">
                   {getDayName(index).substring(0, 3)}
                 </th>
               ))}
@@ -85,16 +117,34 @@ const Calendar = () => {
           </thead>
           <tbody>{rows}</tbody>
         </table>
+
+        <div
+          style={{
+            width: "100%",
+            padding: "12px",
+          }}
+        >
+          {!isDoubleDatePicker && (
+            <button
+              style={{
+                backgroundColor: "orange",
+                width: "100%",
+                border: "none",
+                padding: "10px 13px",
+                borderRadius: "5px",
+                fontSize: "18px",
+              }}
+            >
+              Done
+            </button>
+          )}
+        </div>
       </div>
     );
   };
 
   return (
-    <div className='calendar-div'>
-      {Array.from({ length: 12 }).map((_, month) =>
-        generateCalendar(year, month)
-      )}
-    </div>
+    <div className="calendar-div">{generateCalendar(year, activeMonth)}</div>
   );
 };
 
