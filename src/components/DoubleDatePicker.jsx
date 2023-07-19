@@ -45,13 +45,13 @@ const DoubleDatePicker = () => {
   };
 
   const handlePrevMonth2 = () => {
-    if (activeMonth1 > 0) {
+    if (activeMonth2 > 0) {
       setActiveMonth2((prev) => prev - 1);
     }
   };
 
   const handleNextMonth2 = () => {
-    if (activeMonth1 < 11) {
+    if (activeMonth2 < 11) {
       setActiveMonth2((prev) => prev + 1);
     }
   };
